@@ -1,0 +1,72 @@
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+
+    position: relative;
+    margin: auto;
+
+    min-height: 100%;
+    font-family: 'Nunito', sans-serif;
+
+
+}
+
+button#dropdownMenuButton {
+    border-radius: 0px;
+}
+
+
+p {
+    font-family: Nunito
+}
+
+ul.dropdown-list {
+    list-style: none;
+}
+
+.dropdown: {
+    color: white;
+}
+
+.dropdown-menu {
+    background-color: #333333;
+    width: auto !important;
+    margin-top: 0px;
+    color: white;
+    opacity: .9;
+}
+
+a.dropdown-item {
+    color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/*Timeline CSS*/
+div {
+    padding-top: 0 !important;
+}
+
+.timeline-iframe {
+    margin-bottom: 3em;
+}
+
+/*Timeline filter dropdown*/
+li.timejump {
+    line-height: 2rem;
+}
+
+li.timejump > label {
+    font-size: 1rem !important;
+    line-height: 1.5rem;
+
+}
+
+li.timejump:hover {
+    color: orange;
+}
