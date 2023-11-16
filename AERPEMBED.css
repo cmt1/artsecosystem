@@ -17,7 +17,11 @@ body {
 button#dropdownMenuButton {
     border-radius: 0px;
 }
-
+button#dropdownMenuButton {
+   background-color: orange;
+    border: orange; 
+    
+}
 
 p {
     font-family: Nunito
@@ -27,8 +31,18 @@ ul.dropdown-list {
     list-style: none;
 }
 
-.dropdown: {
+.col.mt-4{
+    margin-top:0px !important;
+}
+.dropdown {
     color: white;
+    background: black !important;
+    width: auto !important;
+}
+div.row {
+    background-color: black;
+    width: auto !important;
+    display: flex;
 }
 
 .dropdown-menu {
