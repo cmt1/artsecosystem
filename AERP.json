@@ -10,7 +10,7 @@
   },
   "events": [{
       "media": {
-        "url": "https://youtu.be/fo8KMsQKUiw",
+        "url": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/fo8KMsQKUiw?si=0ZR6JY3XlYciOYdN\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
         "caption": "TV commercial promoting Century 21, the Seattle World's Fair, 1962",
         "credit": "Courtesy Seattle Municipal Archives"
       },
