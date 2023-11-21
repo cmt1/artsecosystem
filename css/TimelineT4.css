@@ -1,0 +1,239 @@
+body {
+
+    position: relative;
+    margin: auto;
+
+    min-height: 100%;
+    font-family: 'Nunito', sans-serif;
+
+
+}
+
+
+a {
+    color: floralwhite;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+
+
+}
+
+a:hover {
+    color: orange;
+}
+
+.footer {
+
+    border-top-style: solid;
+
+    border-top-width: 50px;
+    color: black;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 0rem;
+    background-color: white;
+    text-align: center;
+    height: 220px;
+    align-content: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    width: auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    color: slategrey;
+}
+
+h4 {
+    text-align: center;
+ font-family: 'Nunito', sans-serif;
+}
+
+h5 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+h6 {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+btn btn-link {
+    margin-left: 0%;
+
+}
+
+
+
+div {
+
+
+    padding-top: 0.5%;
+
+}
+
+nav {
+
+    border: none;
+    border-bottom-style: none;
+    color: whitesmoke;
+    opacity: none;
+}
+
+iframe {
+    border: solid;
+    background-color: whitesmoke;
+
+    color: whitesmoke;
+    padding-bottom: 2.5%;
+    padding-top: 2.5%;
+    opacity: .99;
+}
+
+div.container {
+    border: 50px 100px 100px 100px;
+    padding: 55px 50px 110px 50px !important;
+    background-color: white;
+    opacity: 0.8;
+}
+
+figure.figure {
+    opacity: 1;
+
+}
+
+
+
+.article {
+    padding: 80px 80px 80px 80px;
+}
+
+
+
+
+ul.nav.justify-content-end {
+    padding-bottom: 10%;
+    border-bottom-style: none;
+    padding-right: 2%;
+    padding-top: .5%;
+}
+
+
+
+.background-image {
+    background: url('https://login.proxy.seattleu.edu/public/timelineproject/images/2018AERP32edit.jpg') no-repeat center center fixed;
+    font-family: 'Nunito', sans-serif;
+    background-size: cover;
+}
+
+.background-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(248, 247, 216, 0.7);
+    font-family: 'Nunito', sans-serif;
+}
+
+.nav-item {
+    padding-right: 20px;
+
+}
+
+figure {
+    opacity: .99;
+}
+
+figcaption.figure-caption {
+    color: black;
+    text-align: right;
+    padding-right: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+span.navbar-text {
+    font-size: 17px;
+    font-family: 'Nunito', sans-serif;
+
+    opacity: .99;
+
+}
+
+a.nav-link.disabled {
+    color: orange;
+}
+
+img.logo {
+    text-align: center;
+    filter: grayscale(100%);
+    margin: 20px;
+    margin-bottom: none;
+}
+
+img.logo:hover {
+    filter: none;
+}
+
+.dropdown-menu {
+    background-color: black;
+    opacity: .9;
+
+}
+
+a.dropdown-item {
+    color: white;
+}
+
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    margin-top: 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link.disabled {
+    color: orange;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: orange;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
