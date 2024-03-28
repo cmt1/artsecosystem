@@ -1032,21 +1032,19 @@ AERPnavcontent [8] =
 //LOAD MAIN
 /////////////////
 $(document).ready(function () {
-//Go to time line marker using id
-const url = location.href;
-AERPnavurl.forEach((list1, index) => {
-    const list2 = AERPnavcontent[index];
-        if (url.includes(list1)) {
-            $('div#aemain').append(list2);
-        }
-});
+    const url = location.href;
 
-idsAERPnavurl.forEach((list3, index) => {
-    const list4 = navids[index];
-        if (url.includes(list3)) {
-            $(list4).css("color", "orange");;
+    AERPnavurl.forEach((navUrl, index) => {
+        if (url.includes(navUrl)) {
+            $('div#aemain').append(AERPnavcontent[index]);
         }
-});
+    });
+
+    idsAERPnavurl.forEach((navUrl, index) => {
+        if (url.includes(navUrl)) {
+            $(navids[index]).css("color", "orange");
+        }
+    });
 });
 //////////////////
 //END LOAD MAIN
