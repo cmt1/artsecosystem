@@ -333,70 +333,21 @@ markerID[160] = "#wilu";
 /*Button goes to timeline*/
 
 
-//TEST//
 $(document).ready(function () {
-
-    //Go to time line marker using id
     const url = location.href;
 
-    timelineLinks.forEach((list1, index) => {
-        const list2 = markerID[index];
+    timelineLinks.forEach((timelineLink, index) => {
+        const marker = markerID[index];
 
-        setTimeout(function () {
-            if (url.includes(list2)) {
+        if (url.includes(marker)) {
+            setTimeout(() => $(timelineLink).click(), 1000);
+        }
 
-                $(list1).click();
-                /* $('html, body').animate({
-                     scrollTop: 225
-                 }, 500);*/
-            }
-        }, 1000);
-
-        //Go to timeline using marker
-
-        $(list2).click(function () {
-
-            $(list1).click();
-            /* $('html, body').animate({
-                 scrollTop: 225
-             }, 500);*/
-
-
-        });
-
-
-
-
+        $(marker).click(() => $(timelineLink).click());
     });
 });
 
 
-/*
-$(document).ready(function () {
-
-    timelineLinks.forEach((list1, index) => {
-        const list2 = markerID[index];
-
-        $(list2).click(function () {
-
-            $(list1).click();
-           /* $('html, body').animate({
-                scrollTop: 225
-            }, 500);*/
-
-
-//        });
-//    });
-// });
 
 
 
-
-
-
-
-/* export {
-       timelineLinks,
-       makerID
-   };
-*/
