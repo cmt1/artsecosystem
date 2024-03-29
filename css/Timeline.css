@@ -207,7 +207,7 @@ a.nav-link.disabled {
 img.logo {
     text-align: center;
     filter: grayscale(100%);
-    margin: 20px;
+   
     margin-bottom: none;
 }
 
