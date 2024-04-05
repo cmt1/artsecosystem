@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>AERP Advanced Search</title>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/list.pagination.js/0.1.1/list.pagination.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/AERP.js" type="text/javascript"></script>
+
+
+<style>
+    ul.nav li.dropdown:hover ul.dropdown-menu {
+              display: block;
+          }
+  .list--list-item a, .list--list-item p{
+      color: black;
+      font-size: 16px;
+      
+  
+  }
+  
+  .hidden-txt{display:none;}
+  
+  #orgs{
+  padding: 0px 50px 30px 50px;
+  }
+  
+  .no-result {
+      display:none;
+  text-align:center;
+  }
+  
+  .form-group .btn-danger:not(:disabled):not(.disabled).active:focus, .form-group .btn-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-danger.dropdown-toggle:focus{
+   box-shadow:none;
+  }
+  
+  .filter-group{
+    align-items: center;
+     margin: 0px!important;
+      justify-content: center;
+  }
+  
+  .filter-group ul{padding:0px; text-align: center;}
+  .filter-group ul li{
+    list-style:none;
+    margin: 0px;
+    position: relative;
+  }
+  .filter-group ul li button{
+    width:100%;
+  margin-bottom:20px;
+  }
+  .list li{
+    list-style:none;
+    margin: 2em 0;
+    position: relative;
+  }
+  
+  .form-group .btn-danger:not(:disabled):not(.disabled).active, .form-group .btn-danger:not(:disabled):not(.disabled):active, .show>.btn-danger.dropdown-toggle{
+  color: black;
+  background: orange;
+  }
+  
+  .filter-group ul li{
+    display:inline-block;
+    margin: 0 10px;
+  }
+  
+  .form-group {
+      margin-bottom: 0px;
+  }
+  
+  .list{
+    margin-top: 40px;
+      padding: 0px 20px;
+  }
+  
+  .triangle {
+    font-size:50%;
+    position:absolute;
+    right:10px;
+    top:-2px;
+    bottom:0;
+    margin-top:auto;
+    margin-bottom:auto;
+    height:5px;
+    color:#fff;
+  }
+  .filter-group .dropdown.opened {
+    visibility:visible;
+    transition:all .3s ease;
+    transform:scaleY(1);
+    color:#333;
+    display: block;
+  }
+  .filter-group .dropdown{
+    visibility:hidden;
+    color:#fff;
+    transform-origin:top;
+    padding:0;
+    list-style:none;
+    transform:scaleY(0);
+    box-shadow:0px 2px 6px 0 rgba(0,0,0,0.2);
+    position:absolute;
+    left:0;
+    margin-top:2px;
+    min-width:90%;
+    transition:all .3s ease;
+      z-index: 900;
+      top: 36px;
+      max-height: 300px;
+      overflow: scroll;
+      background: #fff;
+  }
+  .filter-group .dropdown li {
+    background:#fff;
+    padding:8px 10px 0px 15px;
+    box-sizing:border-box;
+    cursor:pointer;
+    transition:background .2s ease;
+    position:relative;
+  }
+  .filter-group .dropdown li.check {
+    background:#f6f6f6;
+  }
+  .filter-group .dropdown li.check:after {
+    content:'';
+    position:absolute;
+    height:15px;
+    width:3px;
+    background:#ccc;
+    top:0;
+    bottom:0;
+    margin-top:auto;
+    transform:rotate(40deg);
+    margin-bottom:auto;
+    right:15px;
+  }
+  .filter-group .dropdown li.check:before {
+    content:'';
+    position:absolute;
+    height:3px;
+    width:9px;
+    background:#ccc;
+    top:6px;
+    bottom:0;
+    margin-top:auto;
+    transform:rotate(40deg);
+    margin-bottom:auto;
+    right:19px;
+  }
+  .filter-group .dropdown li:hover {
+   
+  }
+  
+  .org-nav{
+        font-size: 1.2rem;
+          font-size: 1.2rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .org-nav .pagination {
+      display: inline-block;
+      padding-left: 0;
+      margin: 20px 0;
+      border-radius: 4px;
+  }
+  .org-nav .pagination li {
+        display: inline-block;
+        line-height: 1rem;
+        min-width: 2rem;
+        cursor: pointer;
+  }
+  .org-nav .pagination li a{
+      border-radius: 50%;
+      color: #333333;
+      text-decoration: none;
+  }
+  
+  .org-nav .btn-first, .org-nav .btn-prev, .org-nav .btn-next, .org-nav .btn-last{
+      display: inline-block;
+      line-height: 1rem;
+      min-width: 2rem;
+    cursor: pointer;
+  padding-top: 0px;
+  }
+  
+  .org-nav li.active{
+      background: #aa0000;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 1.2rem;
+      line-height: 2rem;
+      width: 2rem;
+  }
+  
+  .org-nav li.active a{
+    color: #fff;
+  }
+  
+  .org-nav li.active:hover a{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .org-nav li:hover a{
+        color: #aa0000;
+      text-decoration: underline;
+  }
+  
+  .org-nav .btn-first:hover, .org-nav .btn-prev:hover, .org-nav .btn-next:hover, .org-nav .btn-last:hover{
+      color: #aa0000;
+      text-decoration: underline;
+  }
+  
+  
+  .org-nav .btn-first.disabled, .org-nav .btn-prev.disabled, .org-nav .btn-next.disabled, .org-nav .btn-last.disabled, .org-nav li.disabled{
+      display:none;
+  }
+  
+  #orgs .search-field{
+        height: 47px;
+      font-size: 1.6rem;
+      width: 100%;
+  margin-bottom: 20px;
+  }
+  
+  #orgs .search-field input{
+        padding: 20px;
+      border-radius: 20px;
+  }
+  
+  .open-dropdown{
+    position: relative;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: 400;
+      padding: 5px 50px;
+      background-color: black;
+      background-image: none;
+  cursor: pointer;
+  border:none;
+  }
+  
+  .filter-group .btn{
+  position: relative;
+      display: flex;
+      align-items: center;
+      color: black;
+      font-weight: 400;
+      padding: 5px 50px;
+      background-color: orange;
+      background-image: none;
+      border:none;
+  border-radius:0px;
+  }
+  
+  .colored{
+    color: orange;
+  }
+  
+  .open-dropdown:hover, .open-dropdown.active{
+      background: orange;
+      color: #000;
+  }
+  
+  .dropdown-list li{
+     display: block!important;
+  }
+  
+  .dropdown-list li input{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      z-index: -1;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+      opacity: 0;
+  }
+  
+  .dropdown-list label{
+    padding: 5px 0px 0px 0px;
+  cursor: pointer;
+  margin-bottom:0.2rem;
+  }
+  
+  .dropdown-list li:hover label, .dropdown-list .selected label{
+    color: orange;
+  }
+  
+  button:focus, .filter-group .btn:focus{outline:none;box-shadow: none;}
+  
+  @media (max-width: 1024px){
+    .list li{
+      flex: 0 0 33%;
+      max-width: 33%;
+    }
+  }
+  @media (max-width: 767px){
+  .list li{
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+  }
+  @media (max-width: 540px){
+  .list li{
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  }
+  </style>
+  </head>
+  <body>
+
+ <!-- START ADVANCE SEARCH --> 
+
+<div id="orgs" class="col-xs-12">
+    <div class="search-field">
+        <input id="advsearch" type="text" class="search form-control" placeholder="Search by Organization or Event">
+    </div>
+    <h6><i>*Indicates organizations or events that have an associated case study available</i></h6>
+    <br>
+    <div class="filter-group row">
+
+        <ul>
+            <li>
+                <button aria-haspopup="true" aria-expanded="false" class="open-dropdown" data-filter-toggle="true" data-label="Form of Entity">Form of Entity
+                </button>
+                <div class="dropdown">
+                    <ul class="dropdown-list">
+                        <li>
+                            <input type="radio" class="filter" id="entity-nonprofit" value="nonprofit" name="form">
+                            <label for="entity-nonprofit">Nonprofit</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="entity-for_profit" value="for-profit" name="form">
+                            <label for="entity-for_profit">For Profit Business</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="entity-governmental" value="governmental" name="form">
+                            <label for="entity-governmental">Governmental</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="entity-other" value="other" name="form">
+                            <label for="entity-other">Other</label>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <button aria-haspopup="true" aria-expanded="false" class="open-dropdown" data-filter-toggle="true" data-label="Area of Activity">Area of Activity
+                </button>
+                <div class="dropdown">
+                    <ul class="dropdown-list">
+                        <li>
+                            <input type="radio" class="filter" id="aoa-adults" value="arts-education-adults" name="area">
+                            <label for="aoa-adults">Arts Education: Adults</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-children" value="arts-education-children" name="area">
+                            <label for="aoa-children">Arts Education: Children and Youth</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-community-development" value="community-development" name="area">
+                            <label for="aoa-community-development">Arts in Community Development</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-social_service" value="social-justice" name="area">
+                            <label for="aoa-social_service">Arts in Social Service/Social Justice</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-philanthropy" value="philanthropy-funding" name="area">
+                            <label for="aoa-philanthropy">Arts Philanthropy/Funding</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" class="filter" id="aoa-policy" value="arts-policy" name="area">
+                            <label for="aoa-policy">Arts Policy/Advocacy</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-broadcast" value="broadcast-media" name="area">
+                            <label for="aoa-broadcast">Broadcast Media/Press</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-facility" value="facility/venue" name="area">
+                            <label for="aoa-facility">Facility/Venue</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-festival" value="festival" name="area">
+                            <label for="aoa-festival">Festival/Event</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-presenter" value="presenter" name="area">
+                            <label for="aoa-presenter">Presenter/Distributor</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-producer" value="producer" name="area">
+                            <label for="aoa-producer">Producer/Creator</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-artists" value="services-for-artists" name="area">
+                            <label for="aoa-artists">Service(s) for Artists</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="aoa-organization" value="services-for-arts-organizations" name="area">
+                            <label for="aoa-organization">Service(s) for Arts Organizations</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" class="filter" id="aoa-other" value="other" name="area">
+                            <label for="aoa-other">Other</label>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <button aria-haspopup="true" aria-expanded="false" class="open-dropdown" data-filter-toggle="true" data-label="Artistic Discipline">Artistic Discipline
+                </button>
+                <div class="dropdown">
+                    <ul class="dropdown-list">
+                        <li>
+                            <input type="radio" class="filter" id="ad-reporting" value="arts-reporting-criticism" name="disc">
+                            <label for="ad-reporting">Arts Reporting/Criticism </label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-crafts" value="crafts" name="disc">
+                            <label for="ad-crafts">Crafts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-dance" value="dance" name="disc">
+                            <label for="ad-dance">Dance</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-design" value="design" name="disc">
+                            <label for="ad-design">Design</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-heritage" value="heritage-arts" name="disc">
+                            <label for="ad-heritage">Folk/Traditional/Heritage Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-inter" value="interdisciplinary" name="disc">
+                            <label for="ad-inter">Interdisciplinary Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-liberal" value="literary-arts" name="disc">
+                            <label for="ad-liberal">Literary Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-media" value="media-arts" name="disc">
+                            <label for="ad-media">Media Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-multi" value="multidisciplinary" name="disc">
+                            <label for="ad-multi">Multidisciplinary Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-music" value="music" name="disc">
+                            <label for="ad-music">Music</label>
+                        </li>
+
+                        <li>
+                            <input type="radio" class="filter" id="ad-theatre" value="theatre" name="disc">
+                            <label for="ad-theatre">Theatre</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-visual" value="visual-arts" name="disc">
+                            <label for="ad-visual">Visual Arts</label>
+                        </li>
+                        <li>
+                            <input type="radio" class="filter" id="ad-other" value="other" name="disc">
+                            <label for="ad-other">Other</label>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="form-group">
+                <button class="btn btn-danger">Clear</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <ul class="list row">
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, community-development" data-disc="multidisciplinary, theatre, interdisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#12aa" class="name">12th Avenue Arts*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="philanthropy/funding, community-development, services-for-arts-organizations" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#4c" class="name">4Culture*</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="services-for-artists, arts-education-adults, presenter" data-disc="media arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#911" class="name">911 Media Arts
+                Center</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, facility/venue" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#act" class="name">A Contemporary Theatre
+                (ACT)*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, community-development, services-for-artists, social-justice, facility/venue" data-disc="visual-arts, heritage-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#aahmcc" class="name">African American Heritage Museum and Cultural Center*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, facility/venue" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#abt" class="name">Alice B.
+                Theatre</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="other" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#aspam" class="name">Al Smith
+                Photographic Archives at MOHAI</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy, community-development" data-disc="multidisciplinary, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#alar" class="name">Allied Arts</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, services-for-artists, community-development" data-disc="visual-arts, media-arts, music, multidisciplinary, interdisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#andor" class="name">and/or</a>
+        </li>
+            <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#ant" class="name">Annex Theatre</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="services-for-artists, philanthropy-funding" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#attru" class="name">Artist Trust</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="producer, presenter" data-disc="visual-arts, other"><a href="https://library.seattleu.edu/artsecosystem/organizations/#adhp" class="name">Artist-Designed Hatchcovers Project</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-children, social-justice, community-development  " data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#acp" class="name">Arts Corps</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="philanthropy-funding, services-for-arts-organizations" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#afd" class="name">ArtsFund</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, facility/venue" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#bwt" class="name">Bagley
+                Wright Theatre*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="community-development" data-disc="dance, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#bdb" class="name">Bailadores de Bronce</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental, nonprofit" data-area="producer, presenter, facility/venue" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#bthr" class="name">Bathhouse
+                Theater*
+            </a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue" data-disc="visual-arts, crafts, design">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#bam" class="name">Bellevue
+                Art Museum</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue" data-disc="music, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#benh" class="name">Benaroya Hall</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, community-development, social-justice" data-disc="theatre, dance, visual-arts, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#baw" class="name">Black
+                Arts/West*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, other" data-disc="heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#bhsws" class="name">Black Heritage Society of Washington State</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy, philanthropy-funding, facility/venue" data-disc="multidisciplinary, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#bfta" class="name">Building
+                for the Arts</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental, nonprofit" data-area="presenter, producer, festival" data-disc="multidisciplinary"> <a href="https://library.seattleu.edu/artsecosystem/organizations/#bmbst" class="name">Bumbershoot</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="crafts, visual-arts, heritage-arts, other" data-disc="multidisciplinary"> <a href="https://library.seattleu.edu/artsecosystem/organizations/#bmnhc" class="name">Burke Museum of
+                Natural History and Culture</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, services-for-artists," data-disc="visual-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#coca" class="name">Center on Contemporary Art
+                (CoCA)*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, facility/venue, community-development, social-justice, arts-education-children" data-disc="interdisciplinary, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#camp" class="name">Central Area Motivation
+                Program (CAMP)*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, community-development, services-for-artists, social-justice" data-disc="visual-arts, media-arts, music, multidisciplinary, interdisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#cdfai" class="name">Central District Forum for Art & Ideas</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, for-profit" data-area="presenter, facility/venue" data-disc="media-arts, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#cinesiff" class="name">Cinerama/SIFF Cinema Downtown</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="broadcast-media" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#cart" class="name">City Arts</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy, community-development, services-for-artists" data-disc="media-arts, music, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#csofm" class="name">City of
+                Seattle Office of Film + Music</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy" data-disc="music, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#cstdo" class="name">City of Seattle Teen Dance Ordinance*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="visual-arts, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#chily" class="name">Chihuly Studio</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, social-justice" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ccpjt" class="name">Conciliation Project</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, services-for-artists" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#conw" class="name">Consolidated
+                Works*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-adults, facility/venue" data-disc="visual-arts, media-arts, theatre, music, dance, design">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ccota" class="name">Cornish
+                College of the Arts</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="philanthrophy-funding, services-for-arts-organizations" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#ccfta" class="name">Corporate Council for the Arts</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#caw" class="name">Cultural Access Washington</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, arts-education" data-disc="dance"><a href="https://library.seattleu.edu/artsecosystem/organizations/#dtsbedc" class="name">Dance
+                Theatre Seattle/Bill Evans Dance Company</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, presenter, festival, community-development, social-justice" data-disc="multidisciplinary, heritage"><a href="https://library.seattleu.edu/artsecosystem/organizations/#dsicc" class="name"> Daybreak Star Indian Cultural Center* </a>
+        </li>
+        
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="community-development, other" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#djjwc" class="name">Dr. James and Janie Washington Cultural Center</a>
+
+        </li>
+        
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter, facility/venue" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#egam" class="name">Eagles
+                Auditorium*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, producer, services-for-artists, arts-education, festival " data-disc="music"><a href="https://library.seattleu.edu/artsecosystem/organizations/#etjz" class="name">Earshot Jazz</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="other" data-disc="other"><a href="https://library.seattleu.edu/artsecosystem/organizations/#elrss" class="name">Earthworks: Land Reclamation as Sculpture Symposium</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy, philanthropy-funding" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#eisac" class="name">Economic Impact Study of Arts and Culture</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="community-development, social-justice, arts-education-children " data-disc="visual-arts, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#ecdlr" class="name">El Centro
+                de la Raza</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#est" class="name">Empty Space Theatre*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit, other" data-area="facility/venue, services-for-arts-organizations, community-development " data-disc="visual-arts, multidisciplinary, dance"><a href="https://library.seattleu.edu/artsecosystem/organizations/#eqst" class="name">Equinox
+                Studios*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, services-for-artist" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#eset" class="name">eSe Teatro</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-adults, community-development, facility/venue" data-disc="theatre, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ecc" class="name">Ethnic Cultural Center
+                (ECC) </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="arts-education-children, arts-education-adults" data-disc="dance, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#ewds" class="name">Ewajo Dance
+                Studio</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-adults, arts-education-children, other" data-disc="media-arts, music, visual-arts, other"><a href="https://library.seattleu.edu/artsecosystem/organizations/#mopop" class="name">Experience Music
+                Project/Museum of Pop Culture (MoPOP)</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="music, visual-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#fgc" class="name">Faire
+                Gallery Café</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, producer, festival" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#fe71" class="name">Festival '71</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, services-for-artists, festival, community-development" data-disc="multidisciplinary, heritage-arts, visual-arts, dance, crafts, interdisciplinary, music  "><a href="https://library.seattleu.edu/artsecosystem/organizations/#fesun" class="name">Festival
+                Sundiata (Sundiata African American Cultural Association)
+
+            </a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#fsg" class="name">Francine Seders Gallery*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue" data-disc="visual-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#fam" class="name">Frye Art
+                Museum</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter" data-disc="visual-arts, music, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#gade" class="name">Gallery Desta</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, services-for-artists" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#goofac" class="name">Gallery Onyx/Onyx
+                Fine Arts Collective</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, governmental" data-area="presenter, festival, services-for-arts-organizations, services-for-artists" data-disc="theatre, music, dance, visual-arts, design, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#goaf" class="name">Goodwill
+                Arts Festival</a>
+        </li>
+        
+        
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue, presenter" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#gkg" class="name">Greg Kucera Gallery</a>
+        </li>
+        
+        
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, social-justice" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#gtc" class="name">Group
+                Theatre Company</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, community-development, social-justice, services-for-artists" data-disc="theatre, music, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#thp" class="name">The
+                Hansberry Project*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="services-for-artists, arts-education-adults" data-disc="literary-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#hegb" class="name">Hedgebrook</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue,community-development" data-disc="music, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#hid" class="name">Hidmo</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy, services-for-artists, services-for-arts-organizations" data-disc=" multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#inwa" class="name">Inspire Washington</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter" data-disc="theatre"><a href="https://library.seattleu.edu/artsecosystem/organizations/#inth" class="name">Intiman Theatre</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="services-for-artists, arts-education-children, arts-education-adults" data-disc="multidisciplinary, media-arts, other, broadcast-media"><a href="https://library.seattleu.edu/artsecosystem/organizations/#jscc" class="name">Jack Straw Cultural Center</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="festival, community-development" data-disc="music"><a href="https://library.seattleu.edu/artsecosystem/organizations/#jsjw" class="name">Jackson Street Jazz Walk</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, services-for-artists" data-disc="visual-arts, multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#jtfli" class="name">James Turrell Four Light Installations</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, arts-education-children, arts-education-adults, community-development, facility/venue " data-disc="heritage-arts, multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#jccc" class="name">Japanese Cultural and Community Center of WA</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy" data-disc="music, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#jampac" class="name">Joint Artists and Music
+                Promotions Political Action Committee (JAMPAC)</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, broadcast-media, community-development, services-for-artists" data-disc="music, other"><a href="https://library.seattleu.edu/artsecosystem/organizations/#kcmu" class="name">KCMU-FM*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-adults, community-development, facility/venue" data-disc="theatre, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#kecc" class="name">Kelly Ethnic Cultural
+                Center & Theatre</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, broadcast-media, community-development, services-for-artists, facility/venue" data-disc="music, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#kexp" class="name">KEXP-FM*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="philanthropy-funding, community-development, services-for-arts-organizations, services-to-artists" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#kcac" class="name">King County Arts Commission*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy, philanthropy-funding, services-for-arts-organizations" data-disc="multidisciplinary, heritage-arts"> <a href="https://library.seattleu.edu/artsecosystem/organizations/#kclt" class="name">King
+                County Lodging Tax</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="broadcast-media" data-disc="music, other"> <a href="https://library.seattleu.edu/artsecosystem/organizations/#krab" class="name">KRAB-FM</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, other" data-area="philanthropy-funding" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#krfo" class="name">Kreielsheimer Foundation</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, community-development, services-for-artists" data-disc="visual-arts, heritage-arts, crafts, music, dance, theatre, literary-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lasa" class="name">La Sala</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, arts-education-adults, community-development, facility/venue" data-disc="multidisciplinary, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#lhcac" class="name">Langston Hughes Cultural Arts Center*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, arts-education-adults, community-development, facility/venue" data-disc="multidisciplinary, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lhpac" class="name">Langston Hughes Performing Arts Center*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, arts-education-adults, community-development" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lhpai" class="name">Langston Hughes Performing Arts Institute*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="community-development" data-disc="literary-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lems" class="name">LEMS (Life
+                Enrichment) Bookstore</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lfga" class="name">Linda
+                Farris Gallery</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-adults, arts-education-children" data-disc="heritage-arts, media-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lome" class="name">Longhouse
+                Media</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#lulo" class="name">Lucid Lounge</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, governmental" data-area="presenter, facility/venue" data-disc="music, dance, theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#momh" class="name">Marion
+                Oliver McCaw Hall</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="community-development, facility/venue" data-disc="visual-arts, multidisciplinary, interdisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#masa" class="name">Martyr Sauce</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit, nonprofit" data-area="producer,community-development, arts-education-children" data-disc="dance, music, theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#mamo" class="name">Massive Monkees</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="philanthropy-funding, services-for-arts-organizations, services-for-artists, community-development" data-disc="multidisciplinary, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#moac" class="name">Mayor's Office of Arts and Cultural Affairs*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-adults, facility/venue" data-disc="music, theatre, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#meancp" class="name">Meany Center for the Performing Arts</a>
+        </li>
+        
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="philanthropy-funding, services-for-arts-organizations" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nast" class="name">National Arts Stabilization</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue" data-disc="multidisciplinary, music, theatre, cinema">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ntstg" class="name">Neptune Theatre
+                leased by Seattle Theatre Group*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="producer, facility/venue" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ncth" class="name">New City Theatre</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="community-development, facility/venue" data-disc="heritage-arts, music, theatre, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nkth" class="name">Nippon Kan
+                Theatre*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-children, arts-education-adults" data-disc="heritage-arts, crafts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nhmn" class="name">Nordic Heritage Museum/National Nordic Museum</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, community-development, services-for-artists, social-justice, facility/venue" data-disc="visual-arts, heritage-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nwaam" class="name">Northwest<span class="hidden-txt">NW</span> African American Museum*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, community-development, producer, facility/venue" data-disc="theatre, heritage-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nwaat" class="name">Northwest Asian American
+                Theatre (NWAAT) </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, services-for-artists, education, facility/venue" data-disc="media-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#nwff" class="name">Northwest<span class="hidden-txt">NW</span> Film Forum</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="festival, presenter, community-development" data-disc="music, dance, crafts, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#nwfo" class="name">Northwest<span class="hidden-txt">NW</span> Folklife Festival*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="producer, community-development, arts-education-children " data-disc="dance"><a href="https://library.seattleu.edu/artsecosystem/organizations/#nwtc" class="name">Northwest Tap Connection</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="dance, music, theatre, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ofhb" class="name">Odd
+                Fellows Hall Building</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue" data-disc="visual-arts, design, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#osp" class="name">Olympic
+                Sculpture Park</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, facility/venue" data-disc="music, theatre, dance, multidisciplinary, interdisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#otb" class="name">On the
+                Boards*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, arts-education-adults, arts-education-children" data-disc="dance"><a href="https://library.seattleu.edu/artsecosystem/organizations/#pnb" class="name">Pacific Northwest<span class="hidden-txt">NW</span> Ballet*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="dance, theatre, music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#path" class="name">Paramount
+                Theater</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer" data-disc="dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#pgc" class="name">Pat Graney
+                Company</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="philanthropy-funding" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#poncho" class="name">Patrons of
+                Northwest<span class="hidden-txt">NW</span> Civic, Cultural and Charitable Organizations (PONCHO)*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="other" data-area="festival, philanthrophy-funding" data-disc="music, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#pidr" class="name">Piano Drop</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-adults, services-for-artists, facility/venue" data-disc="visual-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#pgs" class="name">Pilchuck
+                Glass School</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit, other" data-area="presenter, festival" data-disc="visual-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#psftaw" class="name">Pioneer Square First Thursday Art Walk*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental, nonprofit" data-area="arts-education-adults, services-for-artists, facility/venue" data-disc="visual-arts, crafts, design"><a href="https://library.seattleu.edu/artsecosystem/organizations/#pfac" class="name">Pratt
+                Fine Arts Center</a>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="facility/venue" data-disc="theatre, music, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#rvcc" class="name">Rainier Valley Cultural Center</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, services-for-artists " data-disc="literary-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#rcp" class="name">Raven Chronicles Press</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue, other " data-disc="theatre, music, dance, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#rebar" class="name">Re-Bar</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-children " data-disc="theatre, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#res" class="name">Red Eagle
+                Soaring</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-children, community-development, producer" data-disc="media-arts, arts-reporting-criticism">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#regr" class="name">Reel Grrls</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-adults, services-for-artists, facility/venue" data-disc="literary-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#rhh" class="name">Richard Hugo
+                House</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="music, visual-arts, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#rlg" class="name">Rosco Louie Gallery</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter, other" data-disc="visual-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#sac" class="name">Safeco
+                Art Collection*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy, philanthropy-funding, services-to-artists, community-development" data-disc="visual-arts, other"><a href="https://library.seattleu.edu/artsecosystem/organizations/#skca" class="name">Seattle and King County 1% for Art Ordinances</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-children" data-disc="literary-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sal" class="name">Seattle
+                Arts and Lectures</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="philanthropy-funding, services-for-arts-organizations, services-for-artists, community-development" data-disc="multidisciplinary, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#saco" class="name">Seattle Arts Commission*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-children, arts-education-adults, facility/venue " data-disc="crafts, heritage-arts, media-arts, design, visual-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#samu" class="name">Seattle Art
+                Museum</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#saam" class="name">Seattle Asian Art Museum*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, facility/venue" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sece" class="name">Seattle
+                Center</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="presenter, producer, community-development" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#scfcf" class="name">Seattle Center Festal Cultural Festivals</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, governmental" data-area="presenter, facility/venue" data-disc="music, dance, theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#scoh" class="name">Seattle Center Opera House</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter,  community-development, arts-education-children, fesitval, arts-education-adults" data-disc="heritage-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#scbj" class="name">Seattle Cherry Blossom and Japanese Cultural Festival </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue, producer, arts-education-children" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#schth" class="name">Seattle Children’s Theatre </a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="fesitval" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sfrf" class="name">Seattle Fringe Festival </a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, festival, facility/venue" data-disc="media-arts, other"> <a href="https://library.seattleu.edu/artsecosystem/organizations/#siff" class="name">Seattle International Film Festival</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="philanthropy-funding, services-for-arts-organizations, services-for-artists, community-development" data-disc="multidisciplinary, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#soac" class="name">Seattle Office of Arts and Culture*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy, facility/venue" data-disc="multidisciplinary, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#seaprop" class="name">Seattle Proposition 1: Seattle Center and Community Centers</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental, nonprofit" data-area="arts-policy, presenter, facility/venue, arts-in-community-development" data-disc="literary-arts, multidisciplinary, other">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#splla" class="name">Seattle Public Library "Libraries for All"</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#spth" class="name">Seattle
+                Public Theater*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, facility/venue" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#srth" class="name">Seattle Repertory Theatre*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, facility/venue" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sesy" class="name">Seattle
+                Symphony </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, facility/venue, arts-education-adults" data-disc="theatre, dance, music, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#setg" class="name">Seattle
+                Theater Group*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, governmental" data-area="festival, presenter, community-development" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#swf" class="name">Seattle
+                World's Fair</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-adults, community-development" data-disc="crafts, visual-arts, heritage-arts, design">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#spcs" class="name">Seward
+                Park Clay Studio*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, services-for-artists" data-disc="theatre">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sis" class="name">SIS
+                Productions</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit, other" data-area="presenter, facility/venue " data-disc="multidisciplinary, visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#soil" class="name">SOIL Art
+                Gallery*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, arts-education-adults, arts-education-children, community-development" data-disc="dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#spdt" class="name">Spectrum
+                Dance Theater*</a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="festival" data-disc="multidisciplinary, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#spaf" class="name">Spirit of Africa Festival</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="presenter" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#spore" class="name">Sub Pop
+                Records</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental, nonprofit" data-area="presenter, facility/venue" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#sntp" class="name" class="name">Summer Nights on the Pier</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue" data-disc="visual-arts, design">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#suyama" class="name">Suyama Space</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="community-development, social-justice, services-for-artists, facility/venue" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#tkb" class="name">Tashiro
+                Kaplan Building*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="governmental" data-area="arts-policy" data-disc="music, dance">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#tdo" class="name">Teen Dance
+                Ordinance*</a>
+        </li>
+
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue" data-disc="music, literary-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#toj" class="name">Theatre Off
+                Jackson </a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="for-profit" data-area="facility/venue" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#tpv" class="name">Thompson’s Point of View </a>
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer" data-disc="music">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#tegc" class="name">Total Experience Gospel Choir </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="facility/venue, producer" data-disc="interdiciplinary, heritage-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#ths" class="name">Town Hall
+                Seattle </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-education-children, arts-education-adults, social-justice, community-development, festival" data-disc="multidisciplinary, music, dance, heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#umoja" class="name">Umoja Fest/African Heritage Festival and Parade </a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="philanthropy-funding, services-for-arts-organizations" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#uacps" class="name">United
+                Arts Council of Puget Sound</a>
+
+        </li>
+
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy, social-justice" data-disc="heritage-arts"><a href="https://library.seattleu.edu/artsecosystem/organizations/#uitf" class="name">United Indians of all Tribes Foundation</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="producer, presenter, arts-education-adults" data-disc="dance"><a href="https://library.seattleu.edu/artsecosystem/organizations/#vdc" class="name">Velocity
+                Dance Center </a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, arts-education-children, services-for-artists, community-development, facility/venue" data-disc="music, visual-arts, design, media-arts, multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#vepo" class="name">Vera
+                Project*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="social-justice, community-development, presenter, facility/venue" data-disc="multidisciplinary, visual-arts, media-arts, dance, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#wanawa" class="name">Wa Na Wari* </a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, social-justice, community-development, services-for-arts-organizations, facility/venue" data-disc="multidisciplinary">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#waha" class="name">Washington
+                Hall*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="arts-policy, services-for-arts-organizations" data-disc="multidisciplinary"><a href="https://library.seattleu.edu/artsecosystem/organizations/#wsaa" class="name">Washington State Arts Alliance</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, community-development, facility/venue" data-disc="visual-arts, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#wlm" class="name">Wing Luke
+                Museum*</a>
+
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, producer, community-development, facility/venue" data-disc="visual-arts, heritage-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#wilu" class="name">Wing Luke Museum of the Asian Pacific American Experience*</a>
+        </li>
+        <li class="list--list-item col-xs-6 col-sm-3" data-entity="nonprofit" data-area="presenter, services-for-artists, facility/venue" data-disc="visual-arts">
+            <a href="https://library.seattleu.edu/artsecosystem/organizations/#zdg" class="name">Zoë Dusanne Gallery</a>
+        </li>
+
+    </ul>
+    <div class="no-result">No Results</div>
+    <div class="org-nav">
+        <ul class="pagination">
+        </ul>
+    </div>
+</div>
+
+ <!-- END ADVANCE SEARCH --> 
+</body>
+</html>

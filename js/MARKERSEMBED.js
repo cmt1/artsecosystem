@@ -166,6 +166,10 @@ timelineLinks[157] = "#washington-hall-marker";
 timelineLinks[158] = "#washington-state-arts-alliance-marker";
 timelineLinks[159] = "#wing-luke-museum-marker";
 timelineLinks[160] = "#wing-luke-museum-of-the-asian-pacific-american-experience-marker";
+timelineLinks[161] = "#cinerama-siff-cinema-downtown-marker";
+timelineLinks[162] = "#meany-center-for-the-performing-arts-marker";
+timelineLinks[163] = "#suyama-space-marker";
+timelineLinks[164] = "#zoe-dusanne-gallery-marker";
 
 //list2
 markerID[0] = "#12aa";
@@ -329,6 +333,10 @@ markerID[157] = "#waha";
 markerID[158] = "#wsaa";
 markerID[159] = "#wlm";
 markerID[160] = "#wilu";
+markerID[161] = "#cinesiff";
+markerID[162] = "#meancp";
+markerID[163] = "#suyama";
+markerID[164] = "#zdg";
 
 /*Button goes to timeline*/
 
