@@ -345,15 +345,26 @@ markerID[165] = "#seop";
 
 $(document).ready(function () {
     const url = location.href;
+    let timeoutCalled = false;
 
     timelineLinks.forEach((timelineLink, index) => {
+         
         const marker = markerID[index];
 
-        if (url.includes(marker)) {
-            setTimeout(() => $(timelineLink).click(), 1000);
+        if (url.includes(marker) && !timeoutCalled) {
+            setTimeout(() => {
+                $(timelineLink).click();
+                
+                const newUrl = url.replace(marker, '');
+                history.replaceState(null, null, newUrl);
+            }, 1000);
+            timeoutCalled = true;
         }
 
-        $(marker).click(() => $(timelineLink).click());
+        $(marker).click((event) => {
+            event.preventDefault(); 
+            $(timelineLink).click();
+        });
     });
 });
 
