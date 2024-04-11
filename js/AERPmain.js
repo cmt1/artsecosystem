@@ -57,8 +57,8 @@ AERPnavcontent [0] =
 "<br>" +
 "<div class=\"image-container\">" +
 "<figure class=\"figure\">" +
-"<img style=\"opacity: 1\" src=\"https://login.proxy.seattleu.edu/public/AERPimg/SP19.JPG\" class=\"figure-img img-fluid rounded\" alt=\"Project Team 2\">" +
-"<figcaption class=\"figure-caption\">Maris Antolin, MFA 2019, presenting her case study at the Winter 2019" +
+"<img style=\"opacity: 1;\" src=\"https://login.proxy.seattleu.edu/public/AERPimg/SP19.JPG\" class=\"figure-img img-fluid rounded\" alt=\"Project Team 2\">" +
+"<figcaption class=\"figure-caption\" style=\"font-size:14px;\">Maris Antolin, MFA 2019, presenting her case study at the Winter 2019" +
 "Applied Research Seminar final presentations. Photo by Erin Burrows</figcaption>" +
 "</figure>" +
 "</div>" +
@@ -69,15 +69,14 @@ AERPnavcontent [0] =
 "<ul style=\"list-style-type:none\">" +
 "<p>AERP research explores the Seattle region's arts ecosystem in greater depth. Entries on the Timeline offer a brief snapshot and link directly to a page with growing research relevant to that entity.</p>" +
 "<br>" +
-"<p><a href=\"https://www.seattleu.edu/artsecosystem/explore/case-studies\" class=\"black\"><b>Case Studies</b></a> investigate aspects of specific organizations, businesses, or events from the AERP Timeline. <a href=\"https://www.seattleu.edu/artsecosystem/explore/ecosystem-research\" class=\"black\"><b> Ecosystem Research</b></a> features academic and community scholarship projects that examine relationships between entities on the Timeline. <a href=\"https://www.seattleu.edu/artsecosystem/explore/resource-links\" class=\"black\"><b>Resource Links</b></a> provide access to notable sites referenced frequently in AERP research and Timeline entries. </p>" +
+"<p><a href=\"https://library.seattleu.edu/artsecosystem/case-studies\" class=\"black\"><b>Case Studies</b></a> investigate aspects of specific organizations, businesses, or events from the AERP Timeline. <a href=\"https://library.seattleu.edu/artsecosystem/ecosystem-research\" class=\"black\"><b> Ecosystem Research</b></a> features academic and community scholarship projects that examine relationships between entities on the Timeline. <a href=\"https://library.seattleu.edu/artsecosystem/resource-links\" class=\"black\"><b>Resource Links</b></a> provide access to notable sites referenced frequently in AERP research and Timeline entries. </p>" +
 "<br>" +
-"<p>You can also access Case Studies and Resource Links directly from the Timeline, or use the <a href=\"https://www.seattleu.edu/artsecosystem/#orgs\" class=\"black\"><b>search function</b></a> directly below the Timeline." +  
+"<p>You can also access Case Studies and Resource Links directly from the Timeline, or use the <a href=\"https://library.seattleu.edu/artsecosystem/#orgs\" class=\"black\"><b>search function</b></a> directly below the Timeline." +  
 "</p>" +
 "<br>" +
 "</ul>" +
 "</div>" +
-"</div>" +
-"<br>";
+"</div>" 
 
 //CASE STUDIES
 AERPnavcontent [1] = 
@@ -85,8 +84,7 @@ AERPnavcontent [1] =
 " <div class=\"container\"><br>" +
 "<h2 style=\"font-weight: bold;\">Case Studies</h2>" +
 " <ul style=\"list-style-type:none; padding-left: 0px;\"><br>" +
-"students and are thoroughly reviewed by AERP Community Advisors" +
-"<p style=\"border-bottom: 0.5px #343a40 solid; padding-bottom: 20px;\">Case studies are developed by graduate prior to" +
+"<p style=\"border-bottom: 0.5px #343a40 solid; padding-bottom: 20px;\">Case studies are developed by graduate students and are thoroughly reviewed by AERP Community Advisors prior to" +
 " being accepted for posting. These case studies are the result of extensive research, including" +
 "interviews with individuals with" +
 "direct lived experience relevant to the topic. Most case studies are completed in conjunction with a" +
@@ -216,7 +214,7 @@ AERPnavcontent [1] =
 "<li><a href=\" https://scholarworks.seattleu.edu/pioneer-square-first-thursday-art-walk/1/\" class=\"black\">" +
 "<u><b>First Thursday Arts Walk of Pioneer Square: A Case Study (2019)</b> by Rachel Ballister</u></a></li>" +
 "<p>A group of Pioneer Square gallery owners collaborated to create the first gallery map and art walk on the West Coast in February 1980. The event has continued to the present with" +
-"the development of the Seattle Art Dealers Association (SADA) which took over publication of <i>Seattle GalleryExhibi<br>" +
+"the development of the Seattle Art Dealers Association (SADA) which took over publication of <i>Seattle Gallery Exhibit</i> in 2005.<br>" +
 " <h5 style=\"font-weight: bold;\">Safeco Art Collection</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/safeco-art-collection/1/\" class=\"black\"><u><b>Corporate Culture: A Case Study of the Safeco Art Collection (2019)</b> by Aubrey Benasa</u></a> </li>" +
 "<p>Over four decades, Safeco, a Seattle-based insurance company, built a major collection of Northwest art." +
@@ -225,7 +223,7 @@ AERPnavcontent [1] =
 "<li><a href=\" https://scholarworks.seattleu.edu/seattle-asian-art-museum/1/\" class=\"black\"><u><b>The Past and the Present, the West and the East: A Case Study on the Renovation and Expansion" +
 "of Seattle Asian Art Museum (2021) </b>by Amanda Feng</u></a></li>" +
 "<p>The 2017 - 2020 renovation of the Seattle Asian Art Museum (SAAM) gave this historic collection a new home that honored the art deco building that houses" +
-"it and provided updates that have enabled the museum to explore new c<br>" +
+"it and provided updates that have enabled the museum to explore new curatorial designs.</p><br>" +
 "<h5 style=\"font-weight: bold;\">Seattle Office of Arts and Culture (also Seattle Arts Commission and Mayor's Office of Arts and Cultural Affairs)</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/seattle-office-arts-culture/1/\" class=\"black\"><u><b>Seattle Office of Arts &amp; Culture: Confronting Institutional Racism in the Arts (2020)</b> by Tanya Sharp</u></a></li>" +
 "<p>In 2004, the City of Seattle implemented the Race and Social Justice Initiative (RSJI), to address the root causes of institutional racism." +
@@ -241,7 +239,7 @@ AERPnavcontent [1] =
 "help the reader consider the relationship of a regional theater's mission to the physical spaces it occupies.</p><br>" +
 "<h5 style=\"font-weight: bold;\">Seattle Theatre Group</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/seattle-theater-group/1/\" class=\"black\"><u><b>The Neptune Theatre: A Case Study (2020) </b>by Ana N. Rusness-Petersen</u></a></li>" +
-"p>The Neptune Theatre is the only survivor of five theaters constructed in Seattle's University District in 1919. Still owned by descendants of the original builders and now leased " +
+"<p>The Neptune Theatre is the only survivor of five theaters constructed in Seattle's University District in 1919. Still owned by descendants of the original builders and now leased " +
 "and operated by the Seattle Theatre Group (STG), it has evolved from a movie house to a vibrant live performance venue for artists ranging from touring musical legends to community youth.</p><br>" +
 "<h5 style=\"font-weight: bold;\">Seward Park Clay Studio</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/bathouse-theater/1/\" class=\"black\"><u><b>Seattle's Bathhouse Arts Spaces: Spectrum Dance, Seattle Public Theater, and Seward Park Clay Studio (2019)</b> by Cristin Miller</u></a></li>" +
@@ -265,7 +263,7 @@ AERPnavcontent [1] =
 "<h5 style=\"font-weight: bold;\">Teen Dance Ordinance</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/teen-dance-ordinance/1/\" class=\"black\"><u><b>DIY Music Spaces: An Origin Story and a Tour of the Underground (2019) </b>by Virginia Easthope</u></a></li>" +
 "<p>Seattle is home to many DIY music spaces: transient venues that exist on the margins, geographically, economically, legally and culturally. Threatened by regulation and gentrification and viewed with indifference by the arts establishment, they can be vital incubators for creative outsiders and safe havens for marginalized artists and audiences.</p><br>" +
-"<h5 style=\"font-weight: bold;\">12th Avenue Arts</h5>br>" +
+"<h5 style=\"font-weight: bold;\">12th Avenue Arts</h5><br>" +
 "<li><a href=\" https://scholarworks.seattleu.edu/twelfth-avenue-arts/1/\" class=\"black\"><u><b>Building Community: A Case Study of the 12th Avenue Arts Development in Seattle (2017) </b>by Pamala Mijatov</u></a></li>" +
 "<p>Capitol Hill Housing, an affordable housing developer, joined with neighborhood arts organizations to build 12th Avenue Arts, in response to the gentrification that threatened Capitol Hill, one of Seattle's most culturally vibrant neighborhoods.</p><br>" +
 "<h5 style=\"font-weight: bold;\">Vera Project</h5><br>" +
@@ -306,7 +304,7 @@ AERPnavcontent [2] =
 "<li><a href=\"https://scholarworks.seattleu.edu/mapping-seattles-cultural-assets/1/\" class=\"black\"><u><b>Mapping Seattle's Cultural Assets: Using Data from the Arts Ecosystem Research Project to Inform Future Arts Leaders (2022) </b> by Stefanie Fatooh</u></a></li>" +
         "<p>This research project maps the data of the AERP Timeline on a map organized by decade, in order to examine how a variety of influences such as planning trends and philanthropic efforts have affected the formation and physical placement of cultural assets in Seattle from 1962 to the present; and the growth and resilience of the Seattle arts ecosystem in general.</p>  " +     
 "</br>" +
-"<ul>" +
+"<ul style=\"font-size:16px;\">" +
 "<li>Click title above to read the full research paper or explore the interactive map below:</li>" +
 "<li>The icon in the upper left hand corner will open the menu that allows you to toggle between different layers, which are organized by decade.</li>" +
 "<li>Each layer includes an entry for arts organizations and entities that either began or ended their operations during that time.</li>" +
@@ -351,7 +349,7 @@ AERPnavcontent [4] =
     "<p> The first phase of research looks at the fifty years from 1962 to 2012. Data collected by participating MFA" +
         "students provides the foundation for a digital <a" +
            "style=\"color: black; font-family:'Nunito', sans-serif; font-size: .93em; font-weight: bold\"" +
-            "href=\"https://www.seattleu.edu/artsecosystem/\">Arts Ecosystem Timeline</a>. Additional student research" +
+            "<a href=\"https://library.seattleu.edu/artsecosystem/\">Arts Ecosystem Timeline</a>. Additional student research" +
         "and related sources augment selected timeline entries via a digital repository. Data will be collected and" +
         "added each year to the timeline and the repository.</p>" +
     "<br>" +
@@ -363,7 +361,7 @@ AERPnavcontent [4] =
     "</div>" +
     "<p>The Seattle region has pioneered numerous notable and innovative approaches to the creation, development and" +
        "presentation of the arts since 1962. This project is designed to:</p>" +
-    "<ul style=\"list-style-type:square\">" +
+    "<ul style=\"list-style-type:square; font-size:16px;\">" +
         "<li>Collect information while many of the individuals involved are able contribute to the understanding," +
             "legacy, and lineage of this still young and vibrant arts ecosystem.</li>" +
         "<li>Provide a foundation for a more nuanced and holistic understanding of the sector and set the stage for" +
@@ -376,7 +374,7 @@ AERPnavcontent [4] =
     "<br>" +
     "<h4 id=\"prodev\">PROJECT UPDATES</h4>" +
     "<br>" +
-    "<h6 style=\"text-align:left\"><b>PROJECT LAUNCH AND DATA COLLECTION 2018</b></h6>" +
+    "<h6 style=\"text-align:left; font-size:15px;\"><b>PROJECT LAUNCH AND DATA COLLECTION 2018</b></h6>" +
     "<p>Fifteen graduate students in the inaugural Applied Research Seminar gathered data from arts leaders with the" +
         "guidance of faculty and Advisors during winter 2018. The data identified noteworthy moments, seminal arts" +
         "events, organizations, and businesses in the region for the initial set of entries for the digital timeline." +
@@ -393,7 +391,7 @@ AERPnavcontent [4] =
         "set the stage for the online resource and data gathering in subsequent years." +
     "</p>" +
     "<br>" +
-    "<h6 style=\"text-align:left\"><b>PROJECT DEVELOPMENT UPDATE 2019 </b></h6>" +
+    "<h6 style=\"text-align:left; font-size:15px;\"><b>PROJECT DEVELOPMENT UPDATE 2019 </b></h6>" +
     "<p>" +
         "Exploratory case studies were developed during 2019 by Applied Research Seminar students to provide depth to" +
         "selected timeline entries. Case studies were built on twenty-seven interviews capturing the lived experience" +
@@ -413,7 +411,7 @@ AERPnavcontent [4] =
         "publicly launched December 2019 with preliminary Timeline entries and nine case studies." +
     "</p>" +
     "<br>" +
-    "<h6 style=\"text-align:left\"><b>PROJECT DEVELOPMENT UPDATE 2020 </b></h6>" +
+    "<h6 style=\"text-align:left; font-size:15px;\"><b>PROJECT DEVELOPMENT UPDATE 2020 </b></h6>" +
     "<p>Organizations formed by and/or serving communities of color in the Seattle region were the AERP research" +
         "focus for the 2020 Applied Research Seminar. Students developed case studies on relevant entities," +
         "conducting 18 in-depth interviews with individuals whose lived experience shaped or intersected with the" +
@@ -422,7 +420,7 @@ AERPnavcontent [4] =
         "providing links to selected KUOW-FM digitally-archived audio of relevance, and identifying and posting" +
         "relevant Timeline images from MOHAI and other archive sources.</p>" +
     "<br>" +
-    "<h6 style=\"text-align: center; line-height: .5;\"><b>About the First Three Years </b></h6>" +
+    "<h6 style=\"text-align: center; line-height: .5; font-size:14px;\"><b>About the First Three Years </b></h6>" +
     "<p>For more details about the evolution of the first three years of the project, please see <a id=\"inlink\"" +
             "style=\"color: black; \"" +
             "href=\"https://scholarworks.seattleu.edu/performing-arts-leadership-fac/1/\"><b>Arts Ecosystem Research" +
@@ -432,7 +430,7 @@ AERPnavcontent [4] =
         "Association of Arts Administration Educators (AAAE) Conference in 2020." +
    "</p>" +
     "<br>" +
-    "<h6 style=\"text-align:left\"><b>PROJECT DEVELOPMENT UPDATE 2021 </b></h6>" +
+    "<h6 style=\"text-align:left; font-size:15px;\"><b>PROJECT DEVELOPMENT UPDATE 2021 </b></h6>" +
     "<p>An AERP BIPOC (Black, Indigenous, and people of color) Research Initiative was undertaken in 2021 with a" +
        " research team consisting of students and alumni, led by Claudia Bach and Felipe Anaya, and supported by" +
         "4Culture. The foundational work done in 2020, as well as input from the AERP advisors, helped the team" +
@@ -444,12 +442,12 @@ AERPnavcontent [4] =
         "more than a dozen new case studies, ongoing additions to the Timeline, and the linking of entries within the" +
         "Timeline to demonstrate the interconnected nature of the arts ecosystem.</p>" +
     "<br>" +
-"<h6 style=\"text-align:left\"><b>PROJECT DEVELOPMENT UPDATE 2022 </b></h6>" +
+"<h6 style=\"text-align:left; font-size:15px;\"><b>PROJECT DEVELOPMENT UPDATE 2022 </b></h6>" +
     "<p>This year marked the five-year anniversary for AERP, with continued building of the Timeline, adding new entries, updating past entries, and links to relevant resources, as well as adding new components. The initial research focus of fifty years from the time of the 1962 World's Fair was extended, reflecting entities active as recently as 2018. Progress on the initiative was shared with partners and supporters including 4Culture, ArtsFund, and MOHAI, along with exploration of ways to develop new structural relationships beyond Seattle University. An expanded aspect of AERP was launched investigating ecosystem relationships and new content from community sources. This included the commissioning of two articles written by community scholars and journalists for AERP, and the first AERP-focused capstone MFA project which explores <a id=\"inlink\"" +
             "style=\"color: black; \"" +
-           " href=\"https://www.seattleu.edu/artsecosystem/explore/ecosystem-research/\"><b>mapping</b></a> of AERP Timeline content. The website was updated to reflect these new dimensions in the <a id=\"inlink\"" +
+           " href=\"https://library.seattleu.edu/artsecosystem/explore/ecosystem-research/\"><b>mapping</b></a> of AERP Timeline content. The website was updated to reflect these new dimensions in the <a id=\"inlink\"" +
            "style=\"color: black; \"" +
-            "href=\"https://www.seattleu.edu/artsecosystem/explore/\"><b>Explore</b></a> tab. </p>" +
+            "href=\"https://library.seattleu.edu/artsecosystem/explore/\"><b>Explore</b></a> tab. </p>" +
     "<br>" +
     "<div class=\"image-container\">" +
         "<figure class=\"figure\">" +
@@ -504,7 +502,7 @@ AERPnavcontent [5] =
 "and his Master of Business Administration from New Mexico State University. He is the lead from the Library" +
 "on developing a sustainable online platform for this research project, and in supporting the research work" +
 "of students contributing to the project.</p>" +
-"<ul style=\"list-style-type:none\">" +
+"<ul style=\"list-style-type:none; font-size:16px;\">" +
 "<br>" +
 "<p><b>Current Seattle University College of Arts & Sciences, Arts Leadership Program and Lemieux Library & McGoldrick Learning Commons Support </b> </p>" +
 "<br> " +
@@ -601,8 +599,8 @@ AERPnavcontent [5] =
     "<br>" +
     "<h4 id=\"studentr\">&nbsp;&nbsp;&nbsp;RESEARCHERS</h4>" +
     "<br>" +
-    "<ul class=\"text-center\" style=\"list-style-type:none\">" +
-    "<h6><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2018</b></h6>" +
+    "<ul class=\"text-center\" style=\"list-style-type:none; font-size:16px;\">" +
+    "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2018</b></h6>" +
     "<li>Maya Anderson</li>" +
     "<li>Elisabeth Astwood</li>" +
     "<li>Sarah Ball </li>" +
@@ -619,14 +617,14 @@ AERPnavcontent [5] =
     "<li>Tina Yu </li>" +
     "<li>Ning (Sharon) Zhou </li>" +
     "<br>" +
-    "<h6><b>MFA in Arts Leadership Practicum, Spring Quarter 2018</b> </h6>" +
+    "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Practicum, Spring Quarter 2018</b> </h6>" +
     "<li>Tyrah Hannibal</li>" +
     "<li>Samantha Van Waardhuizen</li>" +
     "<br>" +
-    "<h6><b>MFA in Arts Leadership Practicum, Fall Quarter 2018</b></h6>" +
+    "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Practicum, Fall Quarter 2018</b></h6>" +
     "<li>Alma Davenport</li>" +
     "<br>" +
-    "<h6><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2019 </h6></b>" +
+    "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2019 </h6></b>" +
     "<li>Maris Antolin</li>" +
     "<li>Rachel Ballister</li>" +
     "<li>Aubrey Benasa</li>" +
@@ -639,10 +637,10 @@ AERPnavcontent [5] =
     "<li>Rebecca O'Neil</li>" +
     "<li>Shannon Welles</li>" +
     "<br>" +
-    "<h6><b>MFA in Arts Leadership Practicum, Spring Quarter 2019 </h6></b>" +
+    "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Practicum, Spring Quarter 2019 </h6></b>" +
     "<li>Rachel Ballister</li>" +
     "<br>" +
-    " <h6><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2020 </h6></b>" +
+    " <h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Applied Research Seminar, Winter Quarter 2020 </h6></b>" +
     "  <li> Andrea Ashton </li>" +
     "   <li> Sadiqua Iman </li>" +
     "   <li> Ashley Marshall </li>" +
@@ -652,18 +650,18 @@ AERPnavcontent [5] =
      "  <li> Dana Winter </li>" +
      "  <li> Cay Lane Wren </li>" +
      "  <br>" +
-     "  <h6><b>MFA in Arts Leadership Practicum, Winter Quarter 2020 </h6></b>" +
+     "  <h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Practicum, Winter Quarter 2020 </h6></b>" +
      "  <li> Erin Burrows </li>" +
      "  <li> Sadiqua Iman </li>" +
      " <br>" +
-     "<h6><b>BIPOC Research Initiative, 2020-2021 </h6></b>" +
+     "<h6 style=\"font-size:16px;\"><b>BIPOC Research Initiative, 2020-2021 </h6></b>" +
      "<li> Elisabeth Astwood, Alumni Research Fellow</li>" +
      " <li> Stefanie Fatooh, Research Fellow</li>" +
      " <li>Ellen McGivern, Researcher</li>" +
      " <li>Kati Simek, Research Practicum</li>" +
      " <li>Cay Lane Wren, Researcher</li>" +
      "<br>" +
-     "<h6><b>MFA in Arts Leadership Practicum and Independent Research, 2021-2022 </h6></b>" +
+     "<h6 style=\"font-size:16px;\"><b>MFA in Arts Leadership Practicum and Independent Research, 2021-2022 </h6></b>" +
      "  <li> Stefanie Fatooh, Researcher</li>" +
      " <li> Carol Roscoe, Independent Research</li>" +
      " <li>Kati Simek, Research Practicum</li>" +
@@ -691,8 +689,8 @@ AERPnavcontent [6] =
 "   <p>Thank you to the individuals who have generously shared their knowledge and perspectives with student" +
 "       researchers for the Arts Ecosystem Research Project. </p>" +
 "   <br>" +
-"    <h6><b>2018 Survey Participants</b></h6>" +
-"  <ul class=\"text-center\" style=\"list-style-type:none\" ,>" +
+"    <h6 style=\"font-size:16px;\"><b>2018 Survey Participants</b></h6>" +
+"  <ul class=\"text-center\" style=\"list-style-type:none; font-size:16px;\" ,>" +
 "     <div class=\"row\">" +
 "        <div class=\"column\">" +
 "         <li>Kathleen Alcala</li>" +
@@ -748,7 +746,7 @@ AERPnavcontent [6] =
  "          </div>" +
  "          <br>" +
  "          <br>" +
- "          <h6><b>2018 Interview Participants</b></h6>" +
+ "          <h6 style=\"font-size:16px;\"><b>2018 Interview Participants</b></h6>" +
  "          <div class=\"row\">" +
  "              <div class=\"column\">" +
  "                  <li>Juan Alonso</li>" +
@@ -786,7 +784,7 @@ AERPnavcontent [6] =
   "         </div>" +
   "         <br>" +
   "         <br>" +
-  "         <h6><b>2019 Interview Participants</b></h6>" +
+  "         <h6 style=\"font-size:16px;\"><b>2019 Interview Participants</b></h6>" +
   "         <div class=\"row\">" +
   "             <div class=\"column\">" +
   "                 <li>Paul de Barros</li>" +
@@ -821,7 +819,7 @@ AERPnavcontent [6] =
    "        </div>" +
    "        <br>" +
    "        <br>" +
-   "        <h6><b>2020 Interview Participants</b></h6>" +
+   "        <h6 style=\"font-size:16px;\"><b>2020 Interview Participants</b></h6>" +
    "        <div class=\"row\">" +
    "            <div class=\"column\">" +
    "                <li> Brian Carter </li>" +
@@ -850,7 +848,7 @@ AERPnavcontent [6] =
    "        </div>" +
    "        <br>" +
    "        <br>" +
-   "        <h6><b>2021 Interview Participants</b></h6>" +
+   "        <h6 style=\"font-size:16px;\"><b>2021 Interview Participants</b></h6>" +
    "        <div class=\"row\">" +
    "            <div class=\"column\">" +
    "                <li> Kurt Beattie </li>" +
@@ -877,7 +875,7 @@ AERPnavcontent [6] =
    "        </div>" +
    "        <br>" +
    "        <br>" +
-   "        <h6><b>2021 BIPOC Research Initiative Participants</b></h6>" +
+   "        <h6 style=\"font-size:16px;\"><b>2021 BIPOC Research Initiative Participants</b></h6>" +
    "        <div class=\"row\">" +
    "            <div class=\"column\">" +
    "                <li> Catalina Cantu </li>" +
@@ -924,7 +922,7 @@ AERPnavcontent [6] =
       "     </div>" +
       " <br>" +
       " <br>" +
-      " <h6><b>Individual Donors</b></h6>" +
+      " <h6 style=\"font-size:16px;\"><b>Individual Donors</b></h6>" +
       "  <div class=\"row\">" +
       "        <br>" +
       "         <div class=\"column\">" +
@@ -944,8 +942,7 @@ AERPnavcontent [6] =
       "      </div>" +
       " </div>" +
       "       </ul>" +
-      " </div>" +
-    "</br>";
+      " </div>"
 
 //FAQ
 AERPnavcontent [7] = 
@@ -954,7 +951,7 @@ AERPnavcontent [7] =
 "       <h2><b>FAQ</b></h2>" +
 "       <br>" +
 "       <div class=\"faq\">" +
-"           <ul style=\"list-style-type:none\">" +
+"           <ul style=\"list-style-type:none; font-size:16px;\">" +
 "               <li><b>What is meant by the term 'arts ecosystem'?</b></li>" +
 "               <br>" +
 "               <p>The arts sector is a complex web of organizational and individual relationships. This set of linkages is sometimes formal and intentional, but often naturally occurring. These connections enable the mobilization of human, financial, and other resources. The creative work of individual artists -singly and with each other-- is foundational, and joined by the creation of nonprofits, for-profit businesses, and governmental entities engaged with artistic production, presentation, education, funding, facilities, distribution, and more. The arts flourish, struggle, and evolve within an interdependent system.</p>" +
@@ -1023,7 +1020,7 @@ AERPnavcontent [8] =
 "<br>" +
 "<p>For more information on the Arts Ecosystem Research Project, please complete the form below. For additional information on Seattle University's MFA in Arts Leadership, please visit <a href=\"https://www.seattleu.edu/artsci/mfa/\">www.seattleu.edu/artsci/mfa/</a></p>" +
 "<iframe class=\"contact-form-iframe\" src=\"https://seattleux.qualtrics.com/jfe/form/SV_eY7vEQFR8GYrYnr\" " +
-     " height=\"800px\" width=\"683px\" alt=\"Qualtrics contact form\"></iframe>" +
+     " style=\"height:800px; width:683px;\" alt=\"Qualtrics contact form\"></iframe>" +
      " </div>" +
      "</div>" +
      "</div>";
