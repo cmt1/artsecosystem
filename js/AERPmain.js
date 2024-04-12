@@ -1015,7 +1015,7 @@ AERPnavcontent [7] =
 AERPnavcontent [8] = 
 "<div class=\"container\">" +
 "<div class=\"row aerp-contact-container\">" +
-"<div class=\"col-lg-8 col-lg-offset-2\">" +
+"<div class=\"col-lg-8\">" +
 " <h2><b>CONTACT FORM</b> </h2>" +
 "<br>" +
 "<p>For more information on the Arts Ecosystem Research Project, please complete the form below. For additional information on Seattle University's MFA in Arts Leadership, please visit <a href=\"https://www.seattleu.edu/artsci/mfa/\">www.seattleu.edu/artsci/mfa/</a></p>" +
