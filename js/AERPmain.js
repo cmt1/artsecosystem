@@ -57,7 +57,7 @@ AERPnavcontent [0] =
 "<br>" +
 "<div class=\"image-container\">" +
 "<figure class=\"figure\">" +
-"<img style=\"opacity: 1;\" src=\"https://login.proxy.seattleu.edu/public/AERPimg/SP19.JPG\" class=\"figure-img img-fluid rounded\" alt=\"Project Team 2\">" +
+"<img style=\"opacity: 1;\" src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/174148/images/SP19.JPG\" class=\"figure-img img-fluid rounded\" alt=\"Project Team 2\">" +
 "<figcaption class=\"figure-caption\" style=\"font-size:14px;\">Maris Antolin, MFA 2019, presenting her case study at the Winter 2019" +
 "Applied Research Seminar final presentations. Photo by Erin Burrows</figcaption>" +
 "</figure>" +
@@ -451,7 +451,7 @@ AERPnavcontent [4] =
     "<br>" +
     "<div class=\"image-container\">" +
         "<figure class=\"figure\">" +
-            "<img style=\"opacity: 1\" src=\"https://login.proxy.seattleu.edu/public/timelineproject/images/AERP-32.jpg\"" +
+            "<img style=\"opacity: 1\" src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/174148/images/AERP-32.jpg\"" +
                 "class=\"figure-img img-fluid rounded\" alt=\"Project Team\">" +
             "<figcaption class=\"figure-caption\">caption</figcaption>" +
         "</figure>" +
@@ -467,7 +467,7 @@ AERPnavcontent [5] =
 "<div class=\"image-container\">" +
 "<figure class=\"figure\">" +
 "<img style=\"opacity: 1\"" +
-"src=\"https://login.proxy.seattleu.edu/public/timelineproject/images/group_photo_AERP_2019.jpg\"" +
+"src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/174148/images/group_photo_AERP_2019.JPG\"" +
 "class=\"figure-img img-fluid rounded\" alt=\"Project Team\">" +
 "<figcaption class=\"figure-caption\">Students and advisors at the Applied Research Seminar final" +
 "presentation, March 2019. Photo: Kevin Maifeld.</figcaption>" +
@@ -669,7 +669,7 @@ AERPnavcontent [5] =
      "<br>" +
      "<div class=\"image-container\">" +
      " <figure class=\"figure\">" +
-     "     <img style=\"opacity: 1\" src=\"https://login.proxy.seattleu.edu/public/AERPimg/2018-AERP-Team.jpg\"" +
+     "     <img style=\"opacity: 1\" src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/174148/images/2018-AERP-Team_copy.jpg\"" +
      " class=\"figure-img img-fluid rounded\" alt=\"Project Team 2018\">" +
      "<figcaption class=\"figure-caption\">Students and advisors at the Applied " + 
     "Research Seminar final presentation, March 2018. Photo: Kevin Maifeld.</figcaption>" +
